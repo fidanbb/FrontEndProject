@@ -483,6 +483,31 @@ body {
      object-fit: cover;
 }
 
+#featured-products {
+  margin-top: 70px;
+  display: flex;
+  justify-content: space-between;
+}
+#featured-products h3 {
+  font-size: 1.875rem;
+  font-weight: 500;
+}
+#featured-products .entry-description p {
+  font-size: 1.0625rem;
+  font-weight: 300;
+}
+
+#products {
+  margin-top: 30px;
+}
+#products .swiper-wrapper {
+  width: 100vw;
+}
+#products img {
+  width: 100%;
+  vertical-align: middle;
+}
+
 @media only screen and (max-width: 1025px) {
   .header-top {
     display: none !important;

@@ -71,7 +71,7 @@ $(document).ready(function () {
   });
 
   //slider
-  const swiper = new Swiper(".swiper", {
+  const swiper = new Swiper(".slider-swiper", {
     loop: true,
     pagination: {
       el: ".swiper-pagination",
@@ -84,8 +84,25 @@ $(document).ready(function () {
   });
 
   $("#slider").hover(function () {
-    $(".swiper-button-prev").toggleClass("d-none");
-    $(".swiper-button-next").toggleClass("d-none");
+    $("#slider .swiper-button-prev").toggleClass("d-none");
+    $("#slider .swiper-button-next").toggleClass("d-none");
+  });
+
+  var swiperProducts = new Swiper(".swiper-products", {
+    loop: true,
+    slidesPerView: 3, // Display 4 slides at a time
+    slidesPerGroup: 3, // Navigate one slide at a time
+    spaceBetween: 40, // Adjust this value as needed
+
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
   });
 
   $($("body")).click(function () {
