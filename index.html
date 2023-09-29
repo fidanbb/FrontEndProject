@@ -23,6 +23,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <link rel="stylesheet" href="./assets/package/swiper.css" />
+    <link rel="stylesheet" href="./assets/package/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./assets/package/swiper-bundle.css" />
+    <link rel="stylesheet" href="./assets/slick-1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="./assets/slick-1.8.1/slick/slick-theme.css" />
     <link rel="stylesheet" href="./assets/css/pages/style.css" />
     <title>Document</title>
   </head>
@@ -267,11 +273,14 @@
             <div class="col-sm-3 col-md-3 col-lg-3">
               <div class="menu-icons">
                 <a href=""> <i class="fa-regular fa-user"></i> </a>
-                <a href=""> <i class="fa-solid fa-magnifying-glass"></i> </a>
-                <div class="search-items">
+                <a href="">
+                  <i class="open-search fa-solid fa-magnifying-glass"></i>
+                  <i class="close-search fa-solid fa-x d-none"></i>
+                </a>
+                <div class="search-items d-none">
                   <div class="search-holder-header">
                     <p>What are you looking for ?</p>
-                    <i class="fa-solid fa-xmark"></i>
+                    <i class="close-search2 fa-solid fa-xmark"></i>
                   </div>
                   <div class="search-input">
                     <form action="">
@@ -310,12 +319,81 @@
     </header>
     <!-- Header Ends -->
 
+    <main>
+      <section id="slider">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./assets/images/slider-04.jpg" alt="" />
+              <div class="content">
+                <h4>Winter 2022 Collection</h4>
+                <h2>
+                  Valential Paul <br />
+                  Essential Collection
+                </h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <a href=""
+                  >Shop Collection <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="./assets/images/slider-05.jpg" alt="" />
+              <div class="content">
+                <h4>Winter 2022 Collection</h4>
+                <h2>
+                  Valential Paul <br />
+                  Essential Collection
+                </h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <a href=""
+                  >Shop Collection <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="./assets/images/slider-06.jpg" alt="" />
+              <div class="content">
+                <h4>Winter 2022 Collection</h4>
+                <h2>
+                  Making Someone <br />
+                  feel pretty is an art
+                </h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <a href=""
+                  >Shop Collection <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-pagination"></div>
+
+          <div class="swiper-button-prev d-none"></div>
+          <div class="swiper-button-next d-none"></div>
+        </div>
+      </section>
+    </main>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.1/jquery-migrate.min.js"
+      integrity="sha512-KgffulL3mxrOsDicgQWA11O6q6oKeWcV00VxgfJw4TcM8XRQT8Df9EsrYxDf7tpVpfl3qcYD96BpyPvA4d1FDQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script src="./assets/package/swiper.js"></script>
+    <script src="./assets/package/swiper-bundle.min.js"></script>
+    <script src="./assets/package/swiper-bundle.js"></script>
+    <script src="./assets/slick-1.8.1/slick/slick.min.js"></script>
+    <script src="./assets/slick-1.8.1/slick/slick.js"></script>
+
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

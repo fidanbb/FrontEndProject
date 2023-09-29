@@ -55,6 +55,39 @@ $(document).ready(function () {
     $(this).toggleClass("d-none");
   });
 
+  $(".open-search").click(function (e) {
+    e.preventDefault();
+    $(this).addClass("d-none");
+    $(".close-search").removeClass("d-none");
+    $(".search-items").removeClass("d-none");
+    $("main").addClass("d-none");
+  });
+
+  $(".close-search2").click(function (e) {
+    e.preventDefault();
+    $(".open-search").removeClass("d-none");
+    $(".close-search").addClass("d-none");
+    $(".search-items").addClass("d-none");
+  });
+
+  //slider
+  const swiper = new Swiper(".swiper", {
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+  $("#slider").hover(function () {
+    $(".swiper-button-prev").toggleClass("d-none");
+    $(".swiper-button-next").toggleClass("d-none");
+  });
+
   $($("body")).click(function () {
     if (!$(".social-media-items").hasClass("d-none")) {
       $(".social-media-items").addClass("d-none");
