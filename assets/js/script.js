@@ -139,25 +139,9 @@ $(document).ready(function () {
   const brandsSwiper = new Swiper(".brands-swiper", {
     loop: true,
     slidesPerView: 5,
-    slidesPerGroup: 2,
-    spaceBetween: 10,
-    // pagination: {
-    //   el: ".swiper-pagination",
-    //   clickable: true,
-    // },
-    // navigation: {
-    //   nextEl: ".swiper-button-next",
-    //   prevEl: ".swiper-button-prev",
-    // },
+    slidesPerGroup: 1,
+    spaceBetween: 40,
   });
-
-  // $(".brands-slide").slick({
-  //   infinite: true,
-  //   speed: 200,
-  //   slidesToShow: 5,
-  //   // centerMode: true,
-  //   // variableWidth: true,
-  // });
 
   $($("body")).click(function () {
     if (!$(".social-media-items").hasClass("d-none")) {

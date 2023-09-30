@@ -708,12 +708,98 @@ body {
 
 #brands {
   margin-top: 30px;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
 }
 #brands img {
   opacity: 0.5;
   cursor: pointer;
   width: 80% !important;
+}
+#brands img:hover {
+  opacity: 1;
+}
+
+#new-collections-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 100px;
+}
+#new-collections-2 .collections-left img {
+  width: 620px;
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+#new-collections-2 .gap-div {
+  width: 7.665%;
+}
+#new-collections-2 .collections-right h4 {
+  margin-top: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2em;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+#new-collections-2 .collections-right h4:nth-of-type(2) {
+  font-size: 0.9375rem;
+  letter-spacing: normal;
+}
+#new-collections-2 .collections-right h2 {
+  margin-bottom: 15px;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.2em;
+}
+#new-collections-2 .collections-right p {
+  margin-bottom: 32px;
+  color: #75767c;
+  font-size: 17px;
+  line-height: 1.5em;
+}
+#new-collections-2 .collections-right p:nth-of-type(2) {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+#new-collections-2 .collections-right a {
+  font-weight: 500;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  border-radius: 2px;
+  font-size: 15px;
+  color: #212529;
+  background-color: transparent;
+  width: 120px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+#new-collections-2 .collections-right a i {
+  margin-left: 7px;
+}
+#new-collections-2 .collections-right a:hover {
+  background-color: #8f8f8f;
+  color: #fff;
+}
+#new-collections-2 .collections-right .ranking {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+#new-collections-2 .collections-right .ranking i {
+  font-size: 0.6rem;
+  color: #edbc30;
+}
+#new-collections-2 .collections-right .ranking span {
+  font-size: 0.8125rem;
+  color: #75767c;
+  margin-left: 10px;
+}
+#new-collections-2 hr {
+  margin-top: 70px !important;
 }
 
 @media only screen and (max-width: 1025px) {
