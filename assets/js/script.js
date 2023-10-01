@@ -143,6 +143,34 @@ $(document).ready(function () {
     spaceBetween: 40,
   });
 
+  //products section 2
+  var swiperProducts = new Swiper(".swiper-products2", {
+    loop: true,
+    // slidesPerView: 4,
+    // slidesPerGroup: 4,
+    // spaceBetween: 20,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      766: {
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+        spaceBetween: 30,
+      },
+      300: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        spaceBetween: 20,
+      },
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
   $($("body")).click(function () {
     if (!$(".social-media-items").hasClass("d-none")) {
       $(".social-media-items").addClass("d-none");
