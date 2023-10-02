@@ -478,140 +478,160 @@ body {
 }
 
 main {
-  #image-section {
-    .image {
-      img {
-        vertical-align: middle;
-        height: auto;
-        max-width: 100%;
-      }
-    }
-  }
+  margin-top: 100px;
+  .site-login {
+    .login-container {
+      display: block;
+      max-width: 560px;
+      padding: 0 0.9375rem;
+      margin-left: auto;
+      margin-right: auto;
 
-  #contact {
-    .contact-us {
-      .contact-text {
-        background-color: #fff;
-        position: relative;
-        top: -180px;
-        // height: 180px;
-        h4 {
-          padding-left: 60px;
-          padding-top: 70px;
-          color: #ee403d;
-          font-size: 18px;
-          line-height: 1.2em;
-          font-weight: 400;
-        }
-        h1 {
-          padding-left: 60px;
-          font-weight: 500;
-          line-height: 1.2em;
-          font-size: 40px;
-        }
-        p {
-          padding-left: 60px;
-          padding-right: 60px;
-          line-height: 1.5em;
-          font-size: 16px;
-        }
-      }
+      .site-login-overflow {
+        border: 1px solid #dee0ea;
+        border-radius: 2px;
+        padding: 60px;
 
-      .contact-inputs {
-        position: relative;
-        top: -110px;
-
-        p {
-          padding-left: 60px;
-          padding-right: 60px;
-
-          label {
-            font-size: 0.875rem;
-            margin-bottom: 5px;
-          }
-
-          span {
-            input {
-              margin-bottom: 0.5rem;
-              width: 100%;
-              border: 1px solid #ddd;
-              height: 42px;
-              border-radius: 2px;
-              font-size: 15px;
-              outline: none;
-            }
-
-            textarea {
-              width: 100%;
-              height: 150px;
-              border: 1px solid #ddd;
-              font-size: 15px;
-              border-radius: 2px;
-              outline: none;
-            }
-          }
-        }
-
-        .email {
-          p {
-            padding-left: 0;
-          }
-        }
-
-        .submit {
-          input {
-            border: 1px solid #ddd;
-            height: 42px;
-            border-radius: 2px;
-            font-size: 15px;
-            padding: 0.5rem 0.9375rem;
-            font-weight: 500;
-          }
-
-          input:hover {
-            background-color: #8f8f8f;
-            color: #fff;
-          }
-        }
-      }
-    }
-    .clotya-store {
-      padding-top: 80px;
-      .iconbox-contact {
-        display: flex;
-        .icon {
-          i {
-            color: #ee403d;
-            max-width: 1.875rem;
-            height: 1.875rem;
-            margin-right: 0.625rem;
-            font-size: 1.5rem;
-          }
-        }
-        .detail {
-          h4 {
-            font-size: 0.9375rem;
-            font-weight: 500;
-            margin-bottom: 0.625rem;
-          }
-          p {
-            font-size: 0.875rem;
+        ul {
+          margin: 0 0 32px;
+          padding: 0 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          li {
             a {
-              color: #ee403d;
+              font-size: 1.065rem;
+              font-weight: 600;
+              text-transform: uppercase;
+              color: #c2c2d3;
+              transition: all 0.5s;
+            }
+
+            &:nth-of-type(2) {
+              margin-left: 2.5rem;
+              //   a {
+              //     color: #c2c2d3;
+              //   }
             }
           }
         }
-      }
-    }
-  }
 
-  #text {
-    margin-top: -70px;
-    .inf {
-      padding-left: 60px;
-      font-size: 16px;
-      letter-spacing: -0.03px;
-      font-weight: 400;
+        .login-form-container {
+          width: 200%;
+          display: flex;
+          transform: translateX(0);
+          .login-form {
+            opacity: 0;
+            transition: all 0.5s;
+            width: 100%;
+            margin-top: 0.9375rem;
+            form {
+              width: 100%;
+              margin-top: 1.25rem;
+              p {
+                margin-bottom: 16px;
+                label {
+                  display: inline-block;
+                  font-size: 0.875rem;
+                  margin-bottom: 5px;
+                }
+
+                input {
+                  width: 100%;
+                  border: 1px solid #eee;
+                  height: 42px;
+                  border-radius: 2px;
+                  outline: #000;
+                }
+
+                input[type="checkbox"] {
+                  height: 15px;
+                  width: auto;
+                }
+
+                &:nth-of-type(3) {
+                  label {
+                    display: flex;
+                    align-items: center;
+                    span {
+                      margin-left: 3px;
+                      padding: 0 0;
+                    }
+                  }
+                }
+
+                button {
+                  width: 100%;
+                  background-color: #ee403d;
+                  border: 1px solid #ee403d;
+                  color: #fff;
+                  height: 42px;
+                  border-radius: 2px;
+                }
+
+                a {
+                  color: #ee403d;
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+
+          .register-form {
+            opacity: 0;
+            transition: all 0.5s;
+            width: 100%;
+            margin-top: 0.9375rem;
+            line-height: 1.6;
+            form {
+              width: 100%;
+              margin-top: 1.25rem;
+              p {
+                margin-bottom: 16px;
+                font-size: 0.8125rem;
+                label {
+                  display: inline-block;
+                  font-size: 0.875rem;
+                  margin-bottom: 5px;
+                }
+
+                input {
+                  width: 100%;
+                  border: 1px solid #eee;
+                  height: 42px;
+                  border-radius: 2px;
+                  outline: #000;
+                }
+
+                button {
+                  width: 100%;
+                  background-color: #ee403d;
+                  border: 1px solid #ee403d;
+                  color: #fff;
+                  height: 42px;
+                  border-radius: 2px;
+                }
+
+                a {
+                  color: #ee403d;
+                  font-size: 0.8125rem;
+                }
+              }
+            }
+          }
+
+          .active {
+            opacity: 1 !important;
+          }
+        }
+
+        .transform-register {
+          transform: translateX(-410px) !important;
+        }
+        .active-tab {
+          color: #000 !important;
+        }
+      }
     }
   }
 }
@@ -812,64 +832,8 @@ footer {
 
 // sm
 @media (min-width: 576px) and (max-width: 767px) {
-  #contact {
-    .contact-text {
-      top: 0 !important;
-      h4 {
-        padding-left: 0 !important;
-      }
-      h1 {
-        padding-left: 0 !important;
-      }
-      p {
-        padding-left: 0 !important;
-      }
-    }
-    .contact-inputs {
-      top: 0 !important;
-
-      p {
-        padding-left: 0 !important;
-      }
-    }
-  }
-
-  #text {
-    margin-top: 10px !important;
-    .inf {
-      padding-left: 0 !important;
-    }
-  }
 }
 
 // md
 @media (min-width: 768px) and (max-width: 991px) {
-  #contact {
-    .contact-text {
-      top: 0 !important;
-      h4 {
-        padding-left: 0 !important;
-      }
-      h1 {
-        padding-left: 0 !important;
-      }
-      p {
-        padding-left: 0 !important;
-      }
-    }
-    .contact-inputs {
-      top: 0 !important;
-
-      p {
-        padding-left: 0 !important;
-      }
-    }
-  }
-
-  #text {
-    margin-top: 10px !important;
-    .inf {
-      padding-left: 0 !important;
-    }
-  }
 }

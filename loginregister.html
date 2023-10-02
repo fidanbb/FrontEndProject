@@ -23,7 +23,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="./assets/css/pages/contact.css" />
+    <link rel="stylesheet" href="./assets/css/pages/loginregister.css" />
     <title>Document</title>
   </head>
   <body>
@@ -259,7 +259,7 @@
                   <a href="">Men</a>
                   <a href="">Outerwear</a>
                   <a href="">Blog</a>
-                  <a href="">Contact</a>
+                  <a href="./contact.html">Contact</a>
                 </div>
               </div>
             </div>
@@ -318,120 +318,70 @@
 
     <!-- Main Starts -->
     <main>
-      <!-- Image Section Starts -->
-      <section id="image-section">
-        <div class="row">
-          <div class="col-sm-12 col-md-12 col-lg-12">
-            <div class="image">
-              <img src="./assets/images/image15.jpeg" alt="" />
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Image Section Ends -->
-
-      <!-- Contact Section Starts -->
-      <section id="contact">
+      <!-- Login Register Section Starts -->
+      <section id="login-register">
         <div class="container">
-          <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-9">
-              <div class="contact-us">
-                <div class="contact-text">
-                  <h4>Contact with us</h4>
-                  <h1>Get In Touch</h1>
-                  <p>
-                    In hac habitasse platea dictumst. Pellentesque viverra sem
-                    nec orci lacinia, in bibendum urna mollis. Quisque nunc
-                    lacus, varius vel leo a, pretium lobortis metus. Vivamus
-                    consectetur consequat justo.
-                  </p>
-                </div>
-                <div class="contact-inputs">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-6">
-                      <div class="name">
-                        <p>
-                          <label for=""> Your name * </label>
-                          <br />
-                          <span><input type="text" required /></span>
-                        </p>
-                      </div>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-6">
-                      <div class="email">
-                        <p>
-                          <label for=""> Your email * </label>
-                          <br />
-                          <span><input type="email" /></span>
-                        </p>
-                      </div>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                      <div class="subject">
-                        <p>
-                          <label for=""> Subject * </label>
-                          <br />
-                          <span><input type="text" /></span>
-                        </p>
-                      </div>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                      <div class="message">
-                        <p>
-                          <label for=""> Your message </label>
-                          <br />
-                          <span>
-                            <textarea
-                              name=""
-                              id=""
-                              cols="40"
-                              rows="10"
-                            ></textarea>
-                          </span>
-                        </p>
-                      </div>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                      <div class="submit">
-                        <p>
-                          <input type="submit" value="Send Message" />
-                        </p>
-                      </div>
-                    </div>
+          <div class="site-login">
+            <div class="login-container">
+              <div class="site-login-overflow">
+                <ul>
+                  <li><a href="" class="active-tab" data-id="1">Login</a></li>
+                  <li><a href="" data-id="2">Register</a></li>
+                </ul>
+                <div class="login-form-container">
+                  <div class="login-form active" data-id="1">
+                    <form action="">
+                      <p>
+                        <label for=""> Username or email address </label>
+                        <span>*</span>
+                        <input type="text" />
+                      </p>
+                      <p>
+                        <label for=""> Password </label>
+                        <span>*</span>
+                        <input type="password" />
+                      </p>
+                      <p>
+                        <label for="">
+                          <input type="checkbox" />
+                          <span>Remember me</span>
+                        </label>
+                      </p>
+                      <p>
+                        <button type="submit">Log in</button>
+                      </p>
+                      <p>
+                        <a href="">Lost your password?</a>
+                      </p>
+                    </form>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-sm-12 col-md-12 col-lg-3">
-              <div class="clotya-store">
-                <div class="iconbox-contact">
-                  <div class="icon">
-                    <i class="fa-solid fa-store"></i>
-                  </div>
-                  <div class="detail">
-                    <h4>Clotya Store</h4>
-                    <p>
-                      Germany — 785 15h Street, Office 478/B Green Mall Berlin,
-                      De 81566
-                    </p>
-                    <p>
-                      Phone: +1 1234 567 88 <br />
-                      Email:
-                      <a href="">contact@example.com</a>
-                    </p>
-                  </div>
-                </div>
-                <div class="iconbox-contact">
-                  <div class="icon">
-                    <i class="fa-solid fa-shop"></i>
-                  </div>
-                  <div class="detail">
-                    <h4>Opening Hours</h4>
-                    <p>
-                      Monday - Friday : 9am - 5pm <br />
-                      Weekend Closed
-                    </p>
+                  <div class="register-form" data-id="2">
+                    <form action="">
+                      <p>
+                        <label for=""> Username</label>
+                        <span>*</span>
+                        <input type="text" />
+                      </p>
+                      <p>
+                        <label for="">Email address </label>
+                        <span>*</span>
+                        <input type="email" />
+                      </p>
+                      <p>
+                        <label for=""> Password </label>
+                        <span>*</span>
+                        <input type="password" />
+                      </p>
+                      <p>
+                        Your personal data will be used to support your
+                        experience throughout this website, to manage access to
+                        your account, and for other purposes described in our
+                        <a href="">privacy policy</a>
+                      </p>
+                      <p>
+                        <button type="submit">Log in</button>
+                      </p>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -439,25 +389,7 @@
           </div>
         </div>
       </section>
-      <!-- Contact Sections Ends -->
-
-      <!-- Text Section Starts -->
-      <section id="text">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12">
-              <div class="inf">
-                In hac habitasse platea dictumst. Pellentesque viverra sem nec
-                orci lacinia, in bibendum urna mollis. Quisque nunc lacus,
-                varius vel leo a, pretium lobortis metus. Vivamus consectetur
-                consequat justo. Sed interdum nunc ut tristique congue. Quisque
-                maximus mauris et dui sagittis scelerisque.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Text Section Ends -->
+      <!-- Login Register Section Ends -->
     </main>
     <!-- Main Ends -->
 
@@ -629,6 +561,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="./assets/js/contact.js"></script>
+    <script src="./assets/js/loginregister.js"></script>
   </body>
 </html>

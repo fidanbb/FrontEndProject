@@ -13,11 +13,14 @@ body {
 #all-header {
   background-color: white;
 }
+#all-header hr {
+  margin: 0 0;
+}
 #all-header .header-top {
   padding-top: 10px;
 }
 #all-header .header-top hr {
-  margin: 0 0;
+  margin: 10px 0 0;
 }
 #all-header .header-top .header-top-left {
   display: flex;
