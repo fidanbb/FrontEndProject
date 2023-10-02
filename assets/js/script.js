@@ -62,6 +62,7 @@ $(document).ready(function () {
     $(".close-search").removeClass("d-none");
     $(".search-items").removeClass("d-none");
     $("main").addClass("d-none");
+    $("footer").addClass("d-none");
   });
 
   $(".close-search2").click(function (e) {
