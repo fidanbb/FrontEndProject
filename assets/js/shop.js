@@ -179,6 +179,35 @@ $(document).ready(function () {
     });
   });
 
+  // product detail js
+
+  let product = [];
+  $(".product-detail h3").click(function () {
+    let productName = $(this).text();
+    let productPrice = $(this).next().next().text();
+    let productId = $(this).parent().parent().data("id");
+    let allImages = $(this).closest(".product").find(".product-images img");
+    let productImages = [];
+    $(allImages).each(function () {
+      var src = $(this).attr("src");
+
+      productImages.push(src);
+    });
+
+    product = [];
+
+    product.push({
+      id: productId,
+      name: productName,
+      price: productPrice,
+      images: productImages,
+    });
+
+    console.log(product);
+
+    localStorage.setItem("product", JSON.stringify(product));
+  });
+
   // body js
 
   $($("body")).click(function () {
