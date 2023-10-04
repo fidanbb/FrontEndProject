@@ -71,6 +71,8 @@ $(document).ready(function () {
     $(".open-search").removeClass("d-none");
     $(".close-search").addClass("d-none");
     $(".search-items").addClass("d-none");
+    $("main").removeClass("d-none");
+    $("footer").removeClass("d-none");
   });
 
   //   Shop js
@@ -162,6 +164,19 @@ $(document).ready(function () {
     e.preventDefault();
     $(this).toggleClass("a-click");
     $(this).prev().toggleClass("span-click");
+  });
+
+  // products js
+  $(".swinger-container").swinger();
+
+  $(".product").hover(function () {
+    let dataId = $(this).data("id");
+
+    $(".product-icons").each(function () {
+      if ($(this).data("id") === dataId) {
+        $(this).toggleClass("transform-product-icons");
+      }
+    });
   });
 
   // body js

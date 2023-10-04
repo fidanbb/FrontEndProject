@@ -70,6 +70,8 @@ $(document).ready(function () {
     $(".open-search").removeClass("d-none");
     $(".close-search").addClass("d-none");
     $(".search-items").addClass("d-none");
+    $("main").removeClass("d-none");
+    $("footer").removeClass("d-none");
   });
 
   //slider section
@@ -93,6 +95,8 @@ $(document).ready(function () {
   //products section
   var swiperProducts = new Swiper(".swiper-products", {
     loop: true,
+    // centeredSlides: true,
+    // Infinity: true,
     // slidesPerView: 4,
     // slidesPerGroup: 4,
     // spaceBetween: 20,
@@ -147,6 +151,7 @@ $(document).ready(function () {
   //products section 2
   var swiperProducts = new Swiper(".swiper-products2", {
     loop: true,
+
     // slidesPerView: 4,
     // slidesPerGroup: 4,
     // spaceBetween: 20,

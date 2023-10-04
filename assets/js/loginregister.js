@@ -71,6 +71,8 @@ $(document).ready(function () {
     $(".open-search").removeClass("d-none");
     $(".close-search").addClass("d-none");
     $(".search-items").addClass("d-none");
+    $("main").removeClass("d-none");
+    $("footer").removeClass("d-none");
   });
 
   //   login-register js
