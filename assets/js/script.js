@@ -38,22 +38,40 @@ $(document).ready(function () {
     e.stopPropagation();
   });
 
-  $(".open-home").hover(function (e) {
+  $(".open-home").mouseover(function (e) {
     e.preventDefault();
-    $(".home-items").toggleClass("d-none");
+    $(".home-items").removeClass("d-none");
   });
 
-  $(".home-items").hover(function () {
-    $(this).toggleClass("d-none");
-  });
-
-  $(".open-shop").hover(function (e) {
+  $(".open-home").mouseout(function (e) {
     e.preventDefault();
-    $(".shop-items").toggleClass("d-none");
+    $(".home-items").addClass("d-none");
   });
 
-  $(".shop-items").hover(function () {
-    $(this).toggleClass("d-none");
+  $(".home-items").mouseover(function () {
+    $(this).removeClass("d-none");
+  });
+
+  $(".home-items").mouseout(function () {
+    $(this).addClass("d-none");
+  });
+
+  $(".open-shop").mouseover(function (e) {
+    e.preventDefault();
+    $(".shop-items").removeClass("d-none");
+  });
+
+  $(".open-shop").mouseout(function (e) {
+    e.preventDefault();
+    $(".shop-items").addClass("d-none");
+  });
+
+  $(".shop-items").mouseover(function () {
+    $(this).removeClass("d-none");
+  });
+
+  $(".shop-items").mouseout(function () {
+    $(this).addClass("d-none");
   });
 
   $(".open-search").click(function (e) {
@@ -93,47 +111,39 @@ $(document).ready(function () {
   });
 
   //products section
-  var swiperProducts = new Swiper(".swiper-products", {
-    loop: true,
-    // centeredSlides: true,
-    // Infinity: true,
-    // slidesPerView: 4,
-    // slidesPerGroup: 4,
-    // spaceBetween: 20,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    breakpoints: {
-      1200: {
-        slidesPerView: 4,
-        slidesPerGroup: 4,
-        spaceBetween: 20,
-      },
-      766: {
-        slidesPerView: 3,
-        slidesPerGroup: 3,
-        spaceBetween: 20,
-      },
-      300: {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        spaceBetween: 30,
-      },
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
 
   $(".all-products").slick({
     infinite: true,
     slidesToShow: 4,
-    slidesToScroll: 3,
+    slidesToScroll: 4,
     dots: true,
-    prevArrow: $(".prev"),
-    nextArrow: $(".next"),
+    arrows: true,
+    // prevArrow: $(".prev"),
+    // nextArrow: $(".next"),
+
+    responsive: [
+      {
+        breakpoint: 1024, // Medium devices (tablets, 768px and up)
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 768, // Small devices (landscape phones, 576px and up)
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   });
 
   $(".swinger-container").swinger();
@@ -153,16 +163,44 @@ $(document).ready(function () {
     slidesToShow: 3,
     slidesToScroll: 3,
     dots: true,
-    prevArrow: $(".prev-2"),
-    nextArrow: $(".next-2"),
+    arrows: true,
+    // prevArrow: $(".prev-2"),
+    // nextArrow: $(".next-2"),
+
+    responsive: [
+      {
+        breakpoint: 1024, // Medium devices (tablets, 768px and up)
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 768, // Small devices (landscape phones, 576px and up)
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   });
 
-  $(".product").hover(function () {
+  $(".product").mouseover(function () {
     let dataId = $(this).data("id");
 
     $(".product-icons").each(function () {
       if ($(this).data("id") === dataId) {
-        $(this).toggleClass("transform-product-icons");
+        $(this).addClass("transform-product-icons");
+      }
+    });
+  });
+
+  $(".product").mouseout(function () {
+    let dataId = $(this).data("id");
+
+    $(".product-icons").each(function () {
+      if ($(this).data("id") === dataId) {
+        $(this).removeClass("transform-product-icons");
       }
     });
   });

@@ -39,18 +39,40 @@ $(document).ready(function () {
     e.stopPropagation();
   });
 
-  $(".open-home").hover(function (e) {
+  $(".open-home").mouseover(function (e) {
     e.preventDefault();
-    $(".home-items").toggleClass("d-none");
+    $(".home-items").removeClass("d-none");
   });
 
-  $(".home-items").hover(function () {
-    $(this).toggleClass("d-none");
+  $(".open-home").mouseout(function (e) {
+    e.preventDefault();
+    $(".home-items").addClass("d-none");
   });
 
-  $(".open-shop").hover(function (e) {
+  $(".home-items").mouseover(function () {
+    $(this).removeClass("d-none");
+  });
+
+  $(".home-items").mouseout(function () {
+    $(this).addClass("d-none");
+  });
+
+  $(".open-shop").mouseover(function (e) {
     e.preventDefault();
-    $(".shop-items").toggleClass("d-none");
+    $(".shop-items").removeClass("d-none");
+  });
+
+  $(".open-shop").mouseout(function (e) {
+    e.preventDefault();
+    $(".shop-items").addClass("d-none");
+  });
+
+  $(".shop-items").mouseover(function () {
+    $(this).removeClass("d-none");
+  });
+
+  $(".shop-items").mouseout(function () {
+    $(this).addClass("d-none");
   });
 
   $(".shop-items").hover(function () {

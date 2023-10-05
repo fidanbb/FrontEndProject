@@ -107,6 +107,7 @@ $(document).ready(function () {
 
       imageContainer.appendChild(img);
     }
+    console.log(imageContainer.innerHTML);
 
     $(".product-image").slick({
       infinite: true,
