@@ -9,7 +9,7 @@ $.fn.swinger = function () {
       position: "absolute",
       top: "0%",
       left: "0%",
-      width: "100%",
+      width: "95%",
     });
     var $middleImage = $($images[0]);
     $middleImage.css({

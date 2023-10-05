@@ -719,6 +719,11 @@ main {
       }
     }
 
+    .slick-dots {
+      position: absolute;
+      bottom: -40px !important;
+    }
+
     .recent-views {
       margin-bottom: 2.5rem;
       padding-left: 50px;

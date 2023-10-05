@@ -208,6 +208,33 @@ $(document).ready(function () {
     localStorage.setItem("product", JSON.stringify(product));
   });
 
+  $(".swinger-container").click(function () {
+    let productName = $(this).parent().next().find("h3").text();
+    let productPrice = $(this).parent().next().find("span")[2].innerText;
+    let productId = $(this).parent().parent().data("id");
+
+    let allImages = $(this).find("img");
+    let productImages = [];
+    $(allImages).each(function () {
+      var src = $(this).attr("src");
+
+      productImages.push(src);
+
+      product = [];
+
+      product.push({
+        id: productId,
+        name: productName,
+        price: productPrice,
+        images: productImages,
+      });
+
+      console.log(product);
+
+      localStorage.setItem("product", JSON.stringify(product));
+    });
+  });
+
   // body js
 
   $($("body")).click(function () {

@@ -127,56 +127,104 @@ $(document).ready(function () {
     },
   });
 
+  $(".all-products").slick({
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 3,
+    dots: true,
+    prevArrow: $(".prev"),
+    nextArrow: $(".next"),
+  });
+
   $(".swinger-container").swinger();
 
-  $(".swiper-slide").hover(function () {
-    let dataId = $(this).data("swiper-slide-index");
+  // Brands Slider part
+
+  $(".all-brands").slick({
+    infinite: true,
+    slidesToShow: 5,
+    slidesToScroll: 3,
+  });
+
+  //products section 2
+
+  $(".all-products-2").slick({
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    dots: true,
+    prevArrow: $(".prev-2"),
+    nextArrow: $(".next-2"),
+  });
+
+  $(".product").hover(function () {
+    let dataId = $(this).data("id");
 
     $(".product-icons").each(function () {
-      if ($(this).data("swiper-slide-index") === dataId) {
+      if ($(this).data("id") === dataId) {
         $(this).toggleClass("transform-product-icons");
       }
     });
   });
 
-  // Brands Slider part
+  // product detail js
 
-  const brandsSwiper = new Swiper(".brands-swiper", {
-    loop: true,
-    slidesPerView: 5,
-    slidesPerGroup: 1,
-    spaceBetween: 40,
+  let product = [];
+
+  $(".product-detail h3").click(function () {
+    let productName = $(this).text();
+    let productPrice = $(this).next().next().text();
+    let productId = $(this).parent().parent().data("id");
+    let allImages = $(this).closest(".product").find(".product-images img");
+    let productImages = [];
+    $(allImages).each(function () {
+      var src = $(this).attr("src");
+
+      productImages.push(src);
+    });
+
+    product = [];
+
+    product.push({
+      id: productId,
+      name: productName,
+      price: productPrice,
+      images: productImages,
+    });
+
+    console.log(product);
+
+    localStorage.setItem("product", JSON.stringify(product));
   });
 
-  //products section 2
-  var swiperProducts = new Swiper(".swiper-products2", {
-    loop: true,
+  $(".swinger-container").click(function () {
+    let productName = $(this).parent().next().find("h3").text();
+    let productPrice = $(this).parent().next().find("span")[2].innerText;
+    let productId = $(this).parent().parent().data("id");
 
-    // slidesPerView: 4,
-    // slidesPerGroup: 4,
-    // spaceBetween: 20,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    breakpoints: {
-      766: {
-        slidesPerView: 3,
-        slidesPerGroup: 3,
-        spaceBetween: 30,
-      },
-      300: {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        spaceBetween: 20,
-      },
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
+    let allImages = $(this).find("img");
+    let productImages = [];
+    $(allImages).each(function () {
+      var src = $(this).attr("src");
+
+      productImages.push(src);
+
+      product = [];
+
+      product.push({
+        id: productId,
+        name: productName,
+        price: productPrice,
+        images: productImages,
+      });
+
+      console.log(product);
+
+      localStorage.setItem("product", JSON.stringify(product));
+    });
   });
 
+  // body js
   $($("body")).click(function () {
     if (!$(".social-media-items").hasClass("d-none")) {
       $(".social-media-items").addClass("d-none");

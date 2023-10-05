@@ -100,12 +100,6 @@ $(document).ready(function () {
     document.querySelector(".price").innerHTML = item.price;
     let imageContainer = document.querySelector(".product-image");
 
-    // let allImages = document.querySelectorAll(".product-image img");
-    // for (let i = 0; i < allImages.length && i < item.images.length; i++) {
-    //   allImages[i].src = item.images[i];
-    //   console.log("Setting src for image " + i + ": " + item.images[i]);
-    // }
-
     for (let i = 0; i < item.images.length; i++) {
       let img = document.createElement("img");
 

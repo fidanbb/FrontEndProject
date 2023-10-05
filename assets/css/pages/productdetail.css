@@ -635,6 +635,10 @@ main #product-detail .product .paginator-center .next i {
   top: -423px;
   right: -200px;
 }
+main #product-detail .slick-dots {
+  position: absolute;
+  bottom: -40px !important;
+}
 main #product-detail .recent-views {
   margin-bottom: 2.5rem;
   padding-left: 50px;
