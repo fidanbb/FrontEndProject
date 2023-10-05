@@ -1242,15 +1242,15 @@ main #product-detail-modal .detail-modal .modal-content .paginator-center .prev 
   font-size: 2.25rem;
   font-weight: 600;
   position: relative;
-  top: -380px;
+  top: -550px;
   left: -230px;
 }
 main #product-detail-modal .detail-modal .modal-content .paginator-center .next i {
   font-size: 2.25rem;
   font-weight: 600;
   position: relative;
-  top: -423px;
-  right: -200px;
+  top: -597px;
+  right: -170px;
 }
 main #product-detail-modal .detail-modal .slick-dots {
   position: absolute;
@@ -1265,7 +1265,7 @@ main #product-detail-modal .slick-slide {
 main #product-detail-modal .slider-nav-thumbnails .slick-slide {
   opacity: 0.5;
 }
-main #product-detail-modal .slider-nav-thumbnails .slick-slide.slick-active {
+main #product-detail-modal .slider-nav-thumbnails .slick-slide.slick-current.slick-active {
   opacity: 1;
   background: green;
 }

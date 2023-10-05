@@ -459,7 +459,7 @@ main #product-detail .product .icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  top: -80px;
+  top: -230px;
   left: 20px;
   border-radius: 50%;
 }
@@ -619,25 +619,38 @@ main #product-detail .product .product-content .product-meta p span {
   font-weight: 500;
 }
 main #product-detail .product .paginator-center {
-  margin-bottom: -80px;
+  margin-bottom: -100px;
 }
 main #product-detail .product .paginator-center .prev i {
   font-size: 2.25rem;
   font-weight: 600;
   position: relative;
-  top: -380px;
+  top: -550px;
   left: -230px;
 }
 main #product-detail .product .paginator-center .next i {
   font-size: 2.25rem;
   font-weight: 600;
   position: relative;
-  top: -423px;
-  right: -200px;
+  top: -597px;
+  right: -170px;
 }
 main #product-detail .slick-dots {
   position: absolute;
   bottom: -40px !important;
+}
+main #product-detail .slider-nav-thumbnails {
+  margin-top: 20px;
+}
+main #product-detail .slick-slide {
+  margin-right: 20px;
+}
+main #product-detail .slider-nav-thumbnails .slick-slide {
+  opacity: 0.5;
+}
+main #product-detail .slider-nav-thumbnails .slick-slide.slick-current.slick-active {
+  opacity: 1;
+  background: green;
 }
 main #product-detail .recent-views {
   margin-bottom: 2.5rem;

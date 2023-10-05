@@ -91,29 +91,52 @@ $(document).ready(function () {
 
   //taking product details js
 
-  let product = [];
-
-  product = JSON.parse(localStorage.getItem("product"));
+  let product = JSON.parse(localStorage.getItem("product"));
 
   for (const item of product) {
     document.querySelector(".product-name").innerHTML = item.name;
     document.querySelector(".price").innerHTML = item.price;
     let imageContainer = document.querySelector(".product-image");
+    let thumbnailContainer = document.querySelector(".slider-nav-thumbnails");
 
     for (let i = 0; i < item.images.length; i++) {
       let img = document.createElement("img");
-
       img.src = item.images[i];
-
       imageContainer.appendChild(img);
+
+      let thumbnailImg = document.createElement("img");
+      thumbnailImg.src = item.images[i];
+      thumbnailContainer.appendChild(thumbnailImg);
     }
-    console.log(imageContainer.innerHTML);
 
     $(".product-image").slick({
       infinite: true,
       prevArrow: $(".prev"),
       nextArrow: $(".next"),
+      asNavFor: ".slider-nav-thumbnails",
     });
+
+    $(".slider-nav-thumbnails").slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      asNavFor: ".product-image",
+      dots: true,
+      focusOnSelect: true,
+    });
+
+    $(".slider-nav-thumbnails .slick-slide").removeClass("slick-active");
+    $(".slider-nav-thumbnails .slick-slide").eq(0).addClass("slick-active");
+
+    $(".product-image").on(
+      "beforeChange",
+      function (event, slick, currentSlide, nextSlide) {
+        var mySlideNumber = nextSlide;
+        $(".slider-nav-thumbnails .slick-slide").removeClass("slick-active");
+        $(".slider-nav-thumbnails .slick-slide")
+          .eq(mySlideNumber)
+          .addClass("slick-active");
+      }
+    );
   }
 
   // body js
