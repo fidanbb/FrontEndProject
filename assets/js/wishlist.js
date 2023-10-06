@@ -93,9 +93,100 @@ $(document).ready(function () {
     $("footer").removeClass("d-none");
   });
 
-  let wishlist = JSON.parse(localStorage.getItem("wishlist"));
+  // wishlist js
+
+  let wishlist = [];
+
+  if (localStorage.getItem("wishlist") != null) {
+    wishlist = JSON.parse(localStorage.getItem("wishlist"));
+    $(".empty-wishlist").addClass("d-none");
+    $(".wishlist-table").removeClass("d-none");
+    $(".social-buttons").removeClass("d-none");
+  } else {
+    $(".empty-wishlist").removeClass("d-none");
+    $(".wishlist-table").addClass("d-none");
+    $(".social-buttons").addClass("d-none");
+  }
+
+  if (wishlist.length == 0) {
+    $(".empty-wishlist").removeClass("d-none");
+    $(".wishlist-table").addClass("d-none");
+    $(".social-buttons").addClass("d-none");
+  }
 
   $(".heart-icon-count").text(wishlist.length);
+
+  let tableBody = document.querySelector("table tbody");
+
+  for (const item of wishlist) {
+    tableBody.innerHTML += `
+      <tr>
+      <td class="product-check">
+        <input type="checkbox" />
+      </td>
+      <td class="product-remove">
+      <span data-id="${item.id}">x</span>
+      </td>
+      <td class="product-image">
+        <img src="${item.image}" alt="" />
+      </td>
+      <td class="product-name">
+        <a href="">${item.name}</a>
+      </td>
+      <td class="product-price">
+        <span>$</span><span>${item.price}</span>
+      </td>
+      <td class="prdocut-date">${item.date}</td>
+      <td class="product-status">
+        <i class="fa-solid fa-check"></i>
+        <span>In Stock</span>
+      </td>
+      <td class="product-action">
+        <button ">Add to Cart</button>
+      </td>
+    </tr>
+      `;
+  }
+
+  // deleting product from wishlist
+
+  $(".product-remove span").click(function () {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let productId = $(this).data("id");
+
+        let existedProduct = wishlist.find((m) => m.id == productId);
+
+        wishlist = wishlist.filter((m) => m.id != existedProduct.id);
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+        $(this).parent().parent().remove();
+
+        $(".heart-icon-count").text(wishlist.length);
+
+        if (wishlist.length == 0) {
+          $(".empty-wishlist").removeClass("d-none");
+          $(".wishlist-table").addClass("d-none");
+          $(".social-buttons").addClass("d-none");
+        }
+        Swal.fire(
+          existedProduct.name,
+          "has been removed from wishlist",
+          "success"
+        );
+      }
+    });
+  });
+
+  // body js
 
   $($("body")).click(function () {
     if (!$(".social-media-items").hasClass("d-none")) {

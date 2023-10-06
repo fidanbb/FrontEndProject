@@ -341,6 +341,78 @@ $(document).ready(function () {
     $(".modal-overlay").addClass("d-none");
   });
 
+  // wishlist js
+
+  let wishlist = [];
+
+  if (localStorage.getItem("wishlist") != null) {
+    wishlist = JSON.parse(localStorage.getItem("wishlist"));
+  }
+
+  $(".fa-heart").each(function () {
+    let productId = $(this).parent().parent().data("id");
+    for (const item of wishlist) {
+      if (item.id === productId) {
+        $(this).removeClass("fa-regular");
+        $(this).addClass("fa-solid");
+      }
+    }
+  });
+
+  $(".heart-icon-count").text(wishlist.length);
+
+  $(".fa-heart").click(function () {
+    let productName = $(this).parent().prev().find("h3").text();
+    let productImage = $(this)
+      .closest(".product")
+      .find(".product-images img")[0]
+      .getAttribute("src");
+    let productPrice = $(this).parent().prev().find("span")[2].innerHTML;
+
+    let year = new Date().getFullYear();
+    let month = new Date().toLocaleString("default", { month: "long" });
+    let day = new Date().getDate();
+
+    let productDate = month + " " + day + ", " + year;
+
+    let productId = $(this).parent().parent().data("id");
+
+    let existedProduct = wishlist.find((m) => m.id == productId);
+
+    if (existedProduct != undefined) {
+      console.log("this product exist");
+
+      Swal.fire({
+        position: "top-center",
+        icon: "error",
+        text: productName + "is already in wishlist",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    } else {
+      wishlist.push({
+        id: productId,
+        name: productName,
+        price: productPrice,
+        date: productDate,
+        image: productImage,
+      });
+      $(this).removeClass("fa-regular");
+      $(this).addClass("fa-solid");
+
+      Swal.fire({
+        position: "top-center",
+        icon: "success",
+        text: productName + "added to wishlist",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    }
+    $(".heart-icon-count").text(wishlist.length);
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  });
+
   // body js
   $($("body")).click(function () {
     if (!$(".social-media-items").hasClass("d-none")) {

@@ -11,6 +11,14 @@
     />
     <link
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"
+      integrity="sha512-gOQQLjHRpD3/SEOtalVq50iDn4opLVup2TF8c4QPI3/NmUPNZOk2FG0ihi8oCU/qYEsw4P6nuEZT2lAG0UNYaw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css"
       integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ=="
       crossorigin="anonymous"
@@ -23,7 +31,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="./assets/css/pages/blog.css" />
+    <link rel="stylesheet" href="./assets/css/pages/wishlist.css" />
     <title>Document</title>
   </head>
   <body>
@@ -318,184 +326,78 @@
 
     <!-- Main Starts -->
     <main>
-      <!-- Section Blog Starts -->
-      <section id="blog">
+      <!-- Wishlist Table Section Starts -->
+      <section id="wishlist">
         <div class="container">
-          <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-9">
-              <div class="blog-posts">
-                <div class="blog-post">
-                  <div class="blog-image">
-                    <a href=""
-                      ><img src="./assets/images/blog-4.jpeg" alt=""
-                    /></a>
-                  </div>
-                  <div class="blog-content">
-                    <div class="date">
-                      <a href="">Collections</a>
-                      <a href=""> April 25, 2022</a>
-                      <a href="">products,</a>
-                      <a href="">woocommerce</a>
-                    </div>
-                    <h2><a href="">The Best Products That Shape Fashion</a></h2>
-                    <p>
-                      Donec rhoncus quis diam sit amet faucibus. Vivamus
-                      pellentesque, sem sed convallis ultricies, ante eros
-                      laoreet libero, vitae suscipit lorem turpis sit amet
-                      lectus. Quisque egestas lorem ut mauris ultrices, vitae
-                      sollicitudin quam facilisis. Vivamus rutrum urna non
-                      ligula tempor aliquet. Fusce tincidunt est magna, id
-                      malesuada massa imperdiet ut. Nunc non nisi urna. Nam
-                    </p>
-                    <a href=""
-                      >Read More <i class="fa-solid fa-arrow-right-long"></i
-                    ></a>
-                  </div>
-                </div>
-                <div class="blog-post">
-                  <div class="blog-image">
-                    <a href=""
-                      ><img src="./assets/images/blog-5.jpeg" alt=""
-                    /></a>
-                  </div>
-                  <div class="blog-content">
-                    <div class="date">
-                      <a href="">Fashion</a>
-                      <a href=""> April 25, 2022</a>
-                      <a href="">clothing,</a>
-                      <a href="">store</a>
-                    </div>
-                    <h2><a href="">New Finds From Tuckernuck</a></h2>
-                    <p>
-                      Donec rhoncus quis diam sit amet faucibus. Vivamus
-                      pellentesque, sem sed convallis ultricies, ante eros
-                      laoreet libero, vitae suscipit lorem turpis sit amet
-                      lectus. Quisque egestas lorem ut mauris ultrices, vitae
-                      sollicitudin quam facilisis. Vivamus rutrum urna non
-                      ligula tempor aliquet. Fusce tincidunt est magna, id
-                      malesuada massa imperdiet ut. Nunc non nisi urna. Nam
-                    </p>
-                    <a href=""
-                      >Read More <i class="fa-solid fa-arrow-right-long"></i
-                    ></a>
-                  </div>
-                </div>
+          <div class="tiny-header">
+            <h2>Default wishlist</h2>
+          </div>
+          <div class="empty-wishlist d-none">
+            <p>Your Wishlist is currently empty.</p>
+            <a href="./shop.html">Return to Shop</a>
+          </div>
+          <div class="wishlist-table">
+            <table>
+              <thead>
+                <tr>
+                  <th class="product-check"><input type="checkbox" /></th>
+                  <th class="product-remove"></th>
+                  <th class="product-image">Image</th>
+                  <th class="product-name">Product Name</th>
+                  <th class="product-price">Unit Price</th>
+                  <th class="prdocut-date">Date Added</th>
+                  <th class="product-status">Stock Status</th>
+                  <th class="product-action"></th>
+                </tr>
+              </thead>
+              <tbody></tbody>
 
-                <div class="blog-post">
-                  <div class="blog-image">
-                    <a href=""
-                      ><img src="./assets/images/blog-6.jpeg" alt=""
-                    /></a>
-                  </div>
-                  <div class="blog-content">
-                    <div class="date">
-                      <a href="">Clothing</a>
-                      <a href=""> April 25, 2022</a>
-                      <a href="">klbtheme,</a>
-                      <a href="">themeforest</a>
+              <tfoot>
+                <tr>
+                  <td colspan="100">
+                    <div class="left">
+                      <div class="left-items">
+                        <select name="" id="">
+                          <option value selected="selected">Actions</option>
+                          <option value="">Add to Cart</option>
+                          <option value="">Remove</option>
+                        </select>
+                        <button>Apply Actions</button>
+                      </div>
                     </div>
-                    <h2><a href="">The Best Products That Shape Fashion</a></h2>
-                    <p>
-                      Donec rhoncus quis diam sit amet faucibus. Vivamus
-                      pellentesque, sem sed convallis ultricies, ante eros
-                      laoreet libero, vitae suscipit lorem turpis sit amet
-                      lectus. Quisque egestas lorem ut mauris ultrices, vitae
-                      sollicitudin quam facilisis. Vivamus rutrum urna non
-                      ligula tempor aliquet. Fusce tincidunt est magna, id
-                      malesuada massa imperdiet ut. Nunc non nisi urna. Nam
-                    </p>
-                    <a href=""
-                      >Read More <i class="fa-solid fa-arrow-right-long"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-12 col-md-12 col-lg-3">
-              <div class="sticky-sidebar">
-                <div class="search-form">
-                  <form action="">
-                    <input type="text" placeholder="Search..." />
-                    <button>
-                      <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                  </form>
-                </div>
-                <div class="popular-posts">
-                  <h4>Popular Posts</h4>
-                  <div class="popular-posts-image">
-                    <ul>
-                      <li>
-                        <figure>
-                          <a href=""
-                            ><img
-                              src="./assets/images/blog-5-100x100.jpeg"
-                              alt=""
-                          /></a>
-                        </figure>
-                        <div class="content">
-                          <a href=""> April 25, 2022</a>
-                          <h3>
-                            New Finds From <br />
-                            Tuckernuck
-                          </h3>
-                        </div>
-                      </li>
-                      <li>
-                        <figure>
-                          <a href=""
-                            ><img
-                              src="./assets/images/blog-4-100x100.jpeg"
-                              alt=""
-                          /></a>
-                        </figure>
-                        <div class="content">
-                          <a href=""> April 25, 2022</a>
-                          <h3>The Best Products That Shape Fashion</h3>
-                        </div>
-                      </li>
-                      <li>
-                        <figure>
-                          <a href=""
-                            ><img
-                              src="./assets/images/blog-6-100x100.jpeg"
-                              alt=""
-                          /></a>
-                        </figure>
-                        <div class="content">
-                          <a href=""> April 25, 2022</a>
-                          <h3>Sunset Sets From Saks</h3>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div class="categories">
-                  <h4>Categories</h4>
-                  <ul>
-                    <li><a href="">Clothing</a></li>
-                    <li><a href="">Collection</a></li>
-                    <li><a href="">Dresses</a></li>
-                    <li><a href="">Fashion</a></li>
-                  </ul>
-                </div>
-                <div class="tags">
-                  <h4>Tags</h4>
-                  <a href="">clothing</a>
-                  <a href="">fashion</a>
-                  <a href="">klbtheme</a>
-                  <a href="">products</a>
-                  <a href="">store</a>
-                  <a href="">themeforest</a>
-                  <a href="">woocommerce</a>
-                </div>
-              </div>
-            </div>
+                    <div class="right">
+                      <div class="right-items">
+                        <button>Add Selcted to Card</button>
+                        <button>Add All to Card</button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
           </div>
         </div>
       </section>
-      <!-- Section Blog Ends -->
+      <!-- Wishlist Table Section Ends -->
+
+      <!-- Share Section Starts  -->
+      <section id="share">
+        <div class="container">
+          <div class="social-buttons">
+            <span>Share on</span>
+
+            <ul>
+              <li><i class="fa-brands fa-facebook-f"></i></li>
+              <li><i class="fa-brands fa-twitter"></i></li>
+              <li><i class="fa-brands fa-pinterest-p"></i></li>
+              <li><i class="fa-brands fa-whatsapp"></i></li>
+              <li><i class="fa-regular fa-copy"></i></li>
+              <li><i class="fa-solid fa-envelope"></i></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- Share Section Starts Ends -->
     </main>
     <!-- Main Ends -->
 
@@ -667,6 +569,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="./assets/js/blog.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.31/dist/sweetalert2.all.min.js"></script>
+    <script src="./assets/js/wishlist.js"></script>
   </body>
 </html>

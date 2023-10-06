@@ -119,6 +119,10 @@ $(document).ready(function () {
     });
   });
 
+  let wishlist = JSON.parse(localStorage.getItem("wishlist"));
+
+  $(".heart-icon-count").text(wishlist.length);
+
   $($("body")).click(function () {
     if (!$(".social-media-items").hasClass("d-none")) {
       $(".social-media-items").addClass("d-none");

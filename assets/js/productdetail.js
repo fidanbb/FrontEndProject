@@ -139,6 +139,17 @@ $(document).ready(function () {
     );
   }
 
+  $(".product-image img").each(function () {
+    $(this).extm({
+      zoomSize: 1200,
+      position: "overlay",
+    });
+  });
+
+  let wishlist = JSON.parse(localStorage.getItem("wishlist"));
+
+  $(".heart-icon-count").text(wishlist.length);
+
   // body js
 
   $($("body")).click(function () {
