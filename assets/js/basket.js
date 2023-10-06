@@ -97,6 +97,11 @@ $(document).ready(function () {
 
   $(".heart-icon-count").text(wishlist.length);
 
+  const progress = document.querySelector(".progress-done");
+
+  progress.style.width = progress.getAttribute("data-done") + "%";
+  progress.style.opacity = 1;
+
   $($("body")).click(function () {
     if (!$(".social-media-items").hasClass("d-none")) {
       $(".social-media-items").addClass("d-none");
