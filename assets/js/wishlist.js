@@ -162,9 +162,7 @@ $(document).ready(function () {
     }).then((result) => {
       if (result.isConfirmed) {
         let productId = $(this).data("id");
-
         let existedProduct = wishlist.find((m) => m.id == productId);
-
         wishlist = wishlist.filter((m) => m.id != existedProduct.id);
         localStorage.setItem("wishlist", JSON.stringify(wishlist));
 

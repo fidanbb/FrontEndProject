@@ -325,13 +325,13 @@
               <div class="free-shipping">
                 <div class="free-shipping-notice">
                   Add
-                  <span class="price-amount"><span>$</span>72</span>
+                  <span>$</span><span class="price-amount">0</span>
                   to cart and get free shipping!
                 </div>
 
                 <div class="free-shipping-progressbar">
                   <div class="progress">
-                    <div class="progress-done" data-done="30"></div>
+                    <div class="progress-done" data-done="0"></div>
                   </div>
                 </div>
               </div>
@@ -348,7 +348,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    <!-- <tr>
                       <td class="product-remove">
                         <i class="fa-solid fa-xmark"></i>
                       </td>
@@ -377,7 +377,7 @@
                           <span>14.99</span>
                         </span>
                       </td>
-                    </tr>
+                    </tr> -->
                   </tbody>
 
                   <tfoot>
@@ -404,7 +404,7 @@
                   <h2>Cart totals</h2>
                   <div class="subtotal">
                     <p>Subtotal</p>
-                    <span>$ <span class="price">14.99</span></span>
+                    <span>$ <span class="price">0</span></span>
                   </div>
                   <div class="shipping">
                     <p>Shipping</p>
@@ -412,10 +412,11 @@
                       <div class="shipping-option">
                         <input
                           type="radio"
-                          id="shipping"
+                          id="flat-rate"
                           name="shippind-method"
+                          checked
                         />
-                        <label for="shipping"
+                        <label for="flat-rate"
                           >Flat rate:
                           <span>$15.00</span>
                         </label>
@@ -423,10 +424,10 @@
                       <div class="shipping-option">
                         <input
                           type="radio"
-                          id="shipping"
+                          id="local-pickup"
                           name="shippind-method"
                         />
-                        <label for="shipping">Local Pickup </label>
+                        <label for="local-pickup">Local Pickup </label>
                       </div>
                       <p>Shipping to <span>AL</span></p>
                       <a href="">Change Address</a>
@@ -435,13 +436,20 @@
 
                   <div class="total">
                     <p>Total</p>
-                    <h3>$<span class="last-price">29.99</span></h3>
+                    <h3>$<span class="last-price">0</span></h3>
                   </div>
                   <a class="checkout" href=""> Proceed to checkout </a>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="empty-basket" class="d-none">
+        <div class="container">
+          <p>Your Cart is currently empty.</p>
+          <a href="./shop.html">Return to Shop</a>
         </div>
       </section>
     </main>

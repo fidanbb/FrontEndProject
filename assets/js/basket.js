@@ -93,15 +93,179 @@ $(document).ready(function () {
     $("footer").removeClass("d-none");
   });
 
-  let wishlist = JSON.parse(localStorage.getItem("wishlist"));
+  let wislist = [];
+
+  if (localStorage.getItem("wishlist") != null) {
+    wishlist = JSON.parse(localStorage.getItem("wishlist"));
+  }
 
   $(".heart-icon-count").text(wishlist.length);
 
-  const progress = document.querySelector(".progress-done");
+  // progress.style.width = progress.getAttribute("data-done") + "%";
+  // progress.style.opacity = 1;
 
-  progress.style.width = progress.getAttribute("data-done") + "%";
-  progress.style.opacity = 1;
+  // basket js
 
+  let basket = [];
+
+  if (localStorage.getItem("basket") != null) {
+    basket = JSON.parse(localStorage.getItem("basket"));
+    $("#empty-basket").addClass("d-none");
+    $("#basket").removeClass("d-none");
+  } else {
+    $("#empty-basket").removeClass("d-none");
+    $("#basket").addClass("d-none");
+  }
+
+  if (basket.length == 0) {
+    $("#empty-basket").removeClass("d-none");
+    $("#basket").addClass("d-none");
+  }
+
+  function basketCount() {
+    let basketCount = 0;
+    for (const item of basket) {
+      basketCount += item.count;
+    }
+    return basketCount;
+  }
+
+  document.querySelector(".basket-icon-count").innerText = basketCount();
+
+  let tableBody = document.querySelector("table tbody");
+
+  for (const item of basket) {
+    tableBody.innerHTML += `
+    <tr>
+    <td class="product-remove">
+      <i data-id="${item.id}" class="fa-solid fa-xmark"></i>
+    </td>
+    <td class="product-image">
+      <img src="${item.image}" alt="" />
+    </td>
+    <td class="product-name"
+      <a href="">${item.name}</a>
+    </td>
+    <td class="product-price">
+      <span
+        >$<span>${item.price}</span>
+      </span>
+    </td>
+    <td class="product-quantity">
+      <div class="quantity">
+        <i data-id="${item.id}" class="fa-solid fa-minus"></i>
+        <span>${item.count}</span>
+        <i data-id="${item.id}" class="fa-solid fa-plus"></i>
+      </div>
+    </td>
+    <td class="product-subtotal">
+      <span>$</span>
+      <span>${item.count * item.price}</span>  
+    </td>
+  </tr>
+      `;
+  }
+
+  // total price and shipping checking price
+
+  function getSubTotalPrice(products) {
+    let subTotal = 0;
+
+    for (const product of products) {
+      subTotal += product.price * product.count;
+    }
+
+    document.querySelector(".price").innerText = Math.round(subTotal);
+    document.querySelector(".last-price").innerText = Math.round(subTotal + 15);
+
+    return subTotal;
+  }
+
+  getSubTotalPrice(basket);
+
+  function checkFreeShipping() {
+    let total = 0;
+    let subtotal = Math.round(getSubTotalPrice(basket));
+    if (subtotal < 250) {
+      if ($("#flat-rate").is(":checked")) {
+        total = subtotal + 15;
+        document.querySelector(".last-price").innerText = total;
+      } else if ($("#local-pickup").is(":checked")) {
+        total = subtotal;
+        document.querySelector(".last-price").innerText = total;
+      }
+    }
+  }
+
+  $("#flat-rate, #local-pickup").change(function () {
+    checkFreeShipping();
+  });
+
+  // progress bar js
+
+  function checkProgress() {
+    const progress = document.querySelector(".progress-done");
+
+    let subTotalPrice = getSubTotalPrice(basket);
+
+    if (subTotalPrice < 250) {
+      let width = (subTotalPrice * 100) / 250;
+      progress.setAttribute("data-done", width);
+      progress.style.width = progress.getAttribute("data-done") + "%";
+      progress.style.opacity = 1;
+      document.querySelector(".price-amount").innerText = Math.round(
+        250 - subTotalPrice
+      );
+    } else if (subTotalPrice >= 250) {
+      let width = 100;
+      progress.setAttribute("data-done", width);
+      progress.style.width = progress.getAttribute("data-done") + "%";
+      progress.style.opacity = 1;
+      document.querySelector(".free-shipping-notice").innerHTML =
+        "Your order qualifies for free shipping!";
+    }
+  }
+
+  checkProgress();
+
+  // delete product from basket
+
+  $(".product-remove i").click(function () {
+    let productId = $(this).data("id");
+    let existedProduct = basket.find((m) => m.id == productId);
+    basket = basket.filter((m) => m.id != existedProduct.id);
+    localStorage.setItem("basket", JSON.stringify(basket));
+    document.querySelector(".basket-icon-count").innerText = basketCount();
+
+    $(this).parent().parent().remove();
+
+    if (basket.length == 0) {
+      $("#empty-basket").removeClass("d-none");
+      $("#basket").addClass("d-none");
+    }
+
+    getSubTotalPrice(basket);
+    checkFreeShipping();
+    checkProgress();
+  });
+
+  // product count plus
+
+  $(".fa-plus").click(function () {
+    let productId = $(this).data("id");
+    let existedProduct = basket.find((m) => m.id == productId);
+    existedProduct.count++;
+    $(".product-quantity span")[0].innerText = existedProduct.count;
+    localStorage.setItem("basket", JSON.stringify(basket));
+    document.querySelector(".basket-icon-count").innerText = basketCount();
+    let productSubTotal = existedProduct.count * existedProduct.price;
+    $(".product-subtotal span")[1].innerText = productSubTotal;
+    getSubTotalPrice(basket);
+    checkFreeShipping();
+    checkProgress();
+  });
+
+  // body js
   $($("body")).click(function () {
     if (!$(".social-media-items").hasClass("d-none")) {
       $(".social-media-items").addClass("d-none");

@@ -665,6 +665,27 @@ main #basket .cart-collaterals .cart-totals .checkout {
 main #basket .cart-collaterals .cart-totals .checkout:hover {
   opacity: 0.8;
 }
+main #empty-basket p {
+  font-size: 16px;
+  color: #000;
+}
+main #empty-basket a {
+  width: auto;
+  text-align: center;
+  background-color: #ee403d;
+  border-color: #ee403d;
+  color: #fff;
+  white-space: pre;
+  font-weight: 500;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.9375rem;
+  height: 42px;
+}
 
 footer {
   margin-top: 70px;

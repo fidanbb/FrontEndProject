@@ -146,8 +146,11 @@ $(document).ready(function () {
     });
   });
 
-  let wishlist = JSON.parse(localStorage.getItem("wishlist"));
+  let wislist = [];
 
+  if (localStorage.getItem("wishlist") != null) {
+    wishlist = JSON.parse(localStorage.getItem("wishlist"));
+  }
   $(".heart-icon-count").text(wishlist.length);
 
   // body js
