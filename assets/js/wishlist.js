@@ -28,6 +28,8 @@ $(document).ready(function () {
   });
 
   $(".open-sidebar").click(function (e) {
+    e.preventDefault();
+
     $(".menu-sidebar").removeClass("transform-sidebar");
     $(".sidebar-overlay").removeClass("d-none");
     e.stopPropagation();
@@ -183,6 +185,35 @@ $(document).ready(function () {
       }
     });
   });
+
+  // basket count
+  let basket = [];
+
+  if (localStorage.getItem("basket") != null) {
+    basket = JSON.parse(localStorage.getItem("basket"));
+  }
+
+  function basketCount() {
+    let basketCount = 0;
+    for (const item of basket) {
+      basketCount += item.count;
+    }
+    return basketCount;
+  }
+
+  function basketPrice() {
+    let price = 0;
+    for (const item of basket) {
+      price += item.count * item.price;
+    }
+
+    return Math.round(price);
+  }
+
+  $(".basket-icon span")[1].innerText = basketPrice();
+  document.querySelector(".basket-icon-count").innerText = basketCount();
+
+  document.querySelector(".basket-icon-count").innerText = basketCount();
 
   // body js
 

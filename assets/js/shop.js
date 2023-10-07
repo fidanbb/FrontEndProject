@@ -28,6 +28,7 @@ $(document).ready(function () {
   });
 
   $(".open-sidebar").click(function (e) {
+    e.preventDefault();
     $(".menu-sidebar").removeClass("transform-sidebar");
     $(".sidebar-overlay").removeClass("d-none");
     e.stopPropagation();
@@ -429,6 +430,17 @@ $(document).ready(function () {
     return basketCount;
   }
 
+  function basketPrice() {
+    let price = 0;
+    for (const item of basket) {
+      price += item.count * item.price;
+    }
+
+    return Math.round(price);
+  }
+
+  $(".basket-icon span")[1].innerText = basketPrice();
+
   document.querySelector(".basket-icon-count").innerText = basketCount();
 
   $(".product .fa-bag-shopping").each(function () {
@@ -449,11 +461,9 @@ $(document).ready(function () {
       .closest(".product")
       .find(".product-images img")[0]
       .getAttribute("src");
-    let productPrice = $(this)
-      .parent()
-      .parent()
-      .prev()
-      .find("span")[2].innerHTML;
+    let productPrice = parseFloat(
+      $(this).parent().parent().prev().find("span")[2].innerHTML
+    );
 
     let productId = $(this).parent().parent().parent().data("id");
 
@@ -475,6 +485,7 @@ $(document).ready(function () {
 
     localStorage.setItem("basket", JSON.stringify(basket));
 
+    $(".basket-icon span")[1].innerText = basketPrice();
     document.querySelector(".basket-icon-count").innerText = basketCount();
 
     Swal.fire({

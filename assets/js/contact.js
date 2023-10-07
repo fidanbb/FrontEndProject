@@ -28,6 +28,8 @@ $(document).ready(function () {
   });
 
   $(".open-sidebar").click(function (e) {
+    e.preventDefault();
+
     $(".menu-sidebar").removeClass("transform-sidebar");
     $(".sidebar-overlay").removeClass("d-none");
     e.stopPropagation();
@@ -93,12 +95,40 @@ $(document).ready(function () {
     $("footer").removeClass("d-none");
   });
 
+  // wishlist
   let wislist = [];
 
   if (localStorage.getItem("wishlist") != null) {
     wishlist = JSON.parse(localStorage.getItem("wishlist"));
   }
   $(".heart-icon-count").text(wishlist.length);
+
+  // basket count
+  let basket = [];
+
+  if (localStorage.getItem("basket") != null) {
+    basket = JSON.parse(localStorage.getItem("basket"));
+  }
+
+  function basketCount() {
+    let basketCount = 0;
+    for (const item of basket) {
+      basketCount += item.count;
+    }
+    return basketCount;
+  }
+  function basketPrice() {
+    let price = 0;
+    for (const item of basket) {
+      price += item.count * item.price;
+    }
+
+    return Math.round(price);
+  }
+
+  $(".basket-icon span")[1].innerText = basketPrice();
+
+  document.querySelector(".basket-icon-count").innerText = basketCount();
 
   $($("body")).click(function () {
     if (!$(".social-media-items").hasClass("d-none")) {

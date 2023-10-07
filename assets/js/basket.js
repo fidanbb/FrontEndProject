@@ -28,6 +28,7 @@ $(document).ready(function () {
   });
 
   $(".open-sidebar").click(function (e) {
+    e.preventDefault();
     $(".menu-sidebar").removeClass("transform-sidebar");
     $(".sidebar-overlay").removeClass("d-none");
     e.stopPropagation();
@@ -130,6 +131,17 @@ $(document).ready(function () {
     return basketCount;
   }
 
+  function basketPrice() {
+    let price = 0;
+    for (const item of basket) {
+      price += item.count * item.price;
+    }
+
+    return Math.round(price);
+  }
+
+  $(".basket-icon span")[1].innerText = basketPrice();
+
   document.querySelector(".basket-icon-count").innerText = basketCount();
 
   let tableBody = document.querySelector("table tbody");
@@ -176,7 +188,16 @@ $(document).ready(function () {
     }
 
     document.querySelector(".price").innerText = Math.round(subTotal);
-    document.querySelector(".last-price").innerText = Math.round(subTotal + 15);
+    if (subTotal < 250) {
+      document.querySelector(".last-price").innerText = Math.round(
+        subTotal + 15
+      );
+      document.querySelector(".shipping-1").innerHTML = `Flat rate:
+      <span>$15.00</span>`;
+    } else {
+      document.querySelector(".last-price").innerText = Math.round(subTotal);
+      document.querySelector(".shipping-1").innerHTML = "Free Shipping";
+    }
 
     return subTotal;
   }
@@ -193,6 +214,12 @@ $(document).ready(function () {
       } else if ($("#local-pickup").is(":checked")) {
         total = subtotal;
         document.querySelector(".last-price").innerText = total;
+      }
+    } else {
+      if ($("#flat-rate").is(":checked")) {
+        document.querySelector(".last-price").innerText = subtotal;
+      } else if ($("#local-pickup").is(":checked")) {
+        document.querySelector(".last-price").innerText = subtotal;
       }
     }
   }
@@ -213,9 +240,14 @@ $(document).ready(function () {
       progress.setAttribute("data-done", width);
       progress.style.width = progress.getAttribute("data-done") + "%";
       progress.style.opacity = 1;
-      document.querySelector(".price-amount").innerText = Math.round(
+      document.querySelector(".free-shipping-notice").innerHTML = `Add
+      <span>$</span><span class="price-amount">${Math.round(
         250 - subTotalPrice
-      );
+      )}</span>
+      to cart and get free shipping!`;
+      // document.querySelector(".price-amount").innerText = Math.round(
+      //   250 - subTotalPrice
+      // );
     } else if (subTotalPrice >= 250) {
       let width = 100;
       progress.setAttribute("data-done", width);
@@ -235,6 +267,7 @@ $(document).ready(function () {
     let existedProduct = basket.find((m) => m.id == productId);
     basket = basket.filter((m) => m.id != existedProduct.id);
     localStorage.setItem("basket", JSON.stringify(basket));
+    $(".basket-icon span")[1].innerText = basketPrice();
     document.querySelector(".basket-icon-count").innerText = basketCount();
 
     $(this).parent().parent().remove();
@@ -255,14 +288,50 @@ $(document).ready(function () {
     let productId = $(this).data("id");
     let existedProduct = basket.find((m) => m.id == productId);
     existedProduct.count++;
-    $(".product-quantity span")[0].innerText = existedProduct.count;
-    localStorage.setItem("basket", JSON.stringify(basket));
+    $(this).prev().text(existedProduct.count);
+    $(".basket-icon span")[1].innerText = basketPrice();
     document.querySelector(".basket-icon-count").innerText = basketCount();
     let productSubTotal = existedProduct.count * existedProduct.price;
-    $(".product-subtotal span")[1].innerText = productSubTotal;
+    $(this).parent().parent().next().find("span")[1].innerText =
+      Math.round(productSubTotal);
+    localStorage.setItem("basket", JSON.stringify(basket));
     getSubTotalPrice(basket);
     checkFreeShipping();
     checkProgress();
+  });
+
+  // product count minus
+
+  $(".fa-minus").click(function () {
+    let productId = $(this).data("id");
+    let existedProduct = basket.find((m) => m.id == productId);
+    existedProduct.count--;
+    if (existedProduct.count == 0) {
+      basket = basket.filter((m) => m.id != existedProduct.id);
+      localStorage.setItem("basket", JSON.stringify(basket));
+      $(".basket-icon span")[1].innerText = basketPrice();
+      document.querySelector(".basket-icon-count").innerText = basketCount();
+      $(this).parent().parent().parent().remove();
+
+      if (basket.length == 0) {
+        $("#empty-basket").removeClass("d-none");
+        $("#basket").addClass("d-none");
+      }
+      getSubTotalPrice(basket);
+      checkFreeShipping();
+      checkProgress();
+    } else {
+      $(this).next().text(existedProduct.count);
+      $(".basket-icon span")[1].innerText = basketPrice();
+      document.querySelector(".basket-icon-count").innerText = basketCount();
+      let productSubTotal = existedProduct.count * existedProduct.price;
+      $(this).parent().parent().next().find("span")[1].innerText =
+        Math.round(productSubTotal);
+      localStorage.setItem("basket", JSON.stringify(basket));
+      getSubTotalPrice(basket);
+      checkFreeShipping();
+      checkProgress();
+    }
   });
 
   // body js

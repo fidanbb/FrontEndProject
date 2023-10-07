@@ -27,6 +27,7 @@ $(document).ready(function () {
   });
 
   $(".open-sidebar").click(function (e) {
+    e.preventDefault();
     $(".menu-sidebar").removeClass("transform-sidebar");
     $(".sidebar-overlay").removeClass("d-none");
     e.stopPropagation();
@@ -411,6 +412,87 @@ $(document).ready(function () {
     $(".heart-icon-count").text(wishlist.length);
 
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  });
+
+  // basket js
+
+  let basket = [];
+
+  if (localStorage.getItem("basket") != null) {
+    basket = JSON.parse(localStorage.getItem("basket"));
+  }
+
+  function basketCount() {
+    let basketCount = 0;
+    for (const item of basket) {
+      basketCount += item.count;
+    }
+    return basketCount;
+  }
+
+  function basketPrice() {
+    let price = 0;
+    for (const item of basket) {
+      price += item.count * item.price;
+    }
+
+    return Math.round(price);
+  }
+
+  $(".basket-icon span")[1].innerText = basketPrice();
+  document.querySelector(".basket-icon-count").innerText = basketCount();
+
+  $(".product .fa-bag-shopping").each(function () {
+    let productId = $(this).parent().parent().parent().data("id");
+    for (const item of basket) {
+      if (item.id === productId) {
+        let icon = `<i class="fa-solid fa-check"></i>`;
+        $(this).parent().parent().append(icon);
+      }
+    }
+  });
+
+  $(".product .fa-bag-shopping").click(function (e) {
+    e.preventDefault();
+
+    let productName = $(this).parent().parent().prev().find("h3").text();
+    let productImage = $(this)
+      .closest(".product")
+      .find(".product-images img")[0]
+      .getAttribute("src");
+    let productPrice = parseFloat(
+      $(this).parent().parent().prev().find("span")[2].innerHTML
+    );
+
+    let productId = $(this).parent().parent().parent().data("id");
+
+    let existedProduct = basket.find((m) => m.id == productId);
+
+    if (existedProduct != undefined) {
+      existedProduct.count++;
+    } else {
+      basket.push({
+        id: productId,
+        name: productName,
+        image: productImage,
+        price: productPrice,
+        count: 1,
+      });
+      let icon = `<i class="fa-solid fa-check"></i>`;
+      $(this).parent().parent().append(icon);
+    }
+
+    localStorage.setItem("basket", JSON.stringify(basket));
+
+    document.querySelector(".basket-icon-count").innerText = basketCount();
+
+    Swal.fire({
+      position: "top-center",
+      icon: "success",
+      text: productName + "added to basket",
+      showConfirmButton: false,
+      timer: 2000,
+    });
   });
 
   // body js

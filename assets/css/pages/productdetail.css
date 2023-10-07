@@ -7,6 +7,7 @@ ul {
 }
 
 body {
+  overflow-x: hidden;
   font-family: "Jost", sans-serif;
 }
 
@@ -803,6 +804,43 @@ main #related-products .recenty-products-all .product .transform-product-icons {
   opacity: 1 !important;
 }
 
+#mobile-menu {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  border-top: 1px solid #dee0ea;
+  padding: 0.625rem 1.25rem;
+  z-index: 1010;
+}
+#mobile-menu ul {
+  padding: 0 0;
+  margin: 0 0;
+  display: flex;
+  align-items: center;
+}
+#mobile-menu ul li {
+  flex: 1;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+#mobile-menu ul li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #8a8b8e;
+}
+#mobile-menu ul li a i {
+  font-size: 20px;
+}
+#mobile-menu ul li a span {
+  margin-top: 5px;
+  font-size: 11px;
+}
+
 footer {
   margin-top: 70px;
 }
@@ -954,6 +992,18 @@ footer #copyright .privacy-policy ul li:nth-of-type(3)::after {
   .header-below .menu {
     display: none !important;
   }
+  #mobile-menu {
+    display: block !important;
+  }
+  .menu-icons a:nth-of-type(1) {
+    display: none !important;
+  }
+  .menu-icons a:nth-of-type(2) {
+    display: none !important;
+  }
+  .menu-icons a:nth-of-type(3) {
+    display: none !important;
+  }
 }
 @media only screen and (max-width: 1200px) {
   .header-top a {
@@ -967,5 +1017,29 @@ footer #copyright .privacy-policy ul li:nth-of-type(3)::after {
   }
   .header-below .search-items {
     width: 950px !important;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .icon {
+    display: none !important;
+  }
+  .product-content {
+    margin-top: 30px !important;
+    padding-left: 0 !important;
+  }
+  body {
+    overflow-x: hidden !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .icon {
+    display: none !important;
+  }
+  .product-content {
+    margin-top: 30px !important;
+    padding-left: 0 !important;
+  }
+  body {
+    overflow-x: hidden !important;
   }
 }/*# sourceMappingURL=productdetail.css.map */
