@@ -1044,6 +1044,11 @@ footer {
 
 // sm
 @media (min-width: 576px) and (max-width: 767px) {
+  .apply-coupon {
+    button {
+      margin-top: 20px;
+    }
+  }
 }
 
 // md

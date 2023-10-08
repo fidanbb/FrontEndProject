@@ -904,4 +904,9 @@ footer #copyright .privacy-policy ul li:nth-of-type(3)::after {
   .header-below .search-items {
     width: 950px !important;
   }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .apply-coupon button {
+    margin-top: 20px;
+  }
 }/*# sourceMappingURL=basket.css.map */

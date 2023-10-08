@@ -1168,6 +1168,16 @@ footer {
       width: 950px !important;
     }
   }
+
+  .paginator-center {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 1390px) {
+  .paginator-center {
+    display: none !important;
+  }
 }
 
 // sm
@@ -1180,8 +1190,8 @@ footer {
     padding-left: 0 !important;
   }
 
-  body {
-    overflow-x: hidden !important;
+  .paginator-center {
+    display: none !important;
   }
 }
 
@@ -1195,7 +1205,7 @@ footer {
     padding-left: 0 !important;
   }
 
-  body {
-    overflow-x: hidden !important;
+  .paginator-center {
+    display: none !important;
   }
 }

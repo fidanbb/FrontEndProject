@@ -141,12 +141,12 @@ $(document).ready(function () {
     );
   }
 
-  $(".product-image img").each(function () {
-    $(this).extm({
-      zoomSize: 1200,
-      position: "overlay",
-    });
-  });
+  // $(".product-image img").each(function () {
+  //   $(this).extm({
+  //     zoomSize: 1200,
+  //     position: "overlay",
+  //   });
+  // });
 
   // $(".product-image img").mouseover(function () {
   //   $(this).extm({
