@@ -102,9 +102,6 @@ $(document).ready(function () {
 
   $(".heart-icon-count").text(wishlist.length);
 
-  // progress.style.width = progress.getAttribute("data-done") + "%";
-  // progress.style.opacity = 1;
-
   // basket js
 
   let basket = [];
@@ -160,7 +157,7 @@ $(document).ready(function () {
     </td>
     <td class="product-price">
       <span
-        >$<span>${item.price}</span>
+        >$<span>${Math.round(item.price)}</span>
       </span>
     </td>
     <td class="product-quantity">
@@ -171,8 +168,7 @@ $(document).ready(function () {
       </div>
     </td>
     <td class="product-subtotal">
-      <span>$</span>
-      <span>${item.count * item.price}</span>  
+      <span>$</span><span>${Math.round(item.count * item.price)}</span>  
     </td>
   </tr>
       `;

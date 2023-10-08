@@ -148,6 +148,13 @@ $(document).ready(function () {
     });
   });
 
+  // $(".product-image img").mouseover(function () {
+  //   $(this).extm({
+  //     zoomSize: 500,
+  //     position: "overlay",
+  //   });
+  // });
+
   // wishlist
   let wislist = [];
 
